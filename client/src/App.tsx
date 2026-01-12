@@ -44,8 +44,8 @@ function App() {
       } else {
         // Create new cart
         const newCart = await api.createCart();
-        setCartId(newCart.cart.id);
-        localStorage.setItem('cartId', newCart.cart.id);
+        setCartId(newCart.id);
+        localStorage.setItem('cartId', newCart.id);
       }
     } catch (err) {
       console.error('Failed to initialize cart:', err);
@@ -101,8 +101,8 @@ function App() {
       await api.clearCart(cartId);
       // Create new cart
       const newCart = await api.createCart();
-      setCartId(newCart.cart.id);
-      localStorage.setItem('cartId', newCart.cart.id);
+      setCartId(newCart.id);
+      localStorage.setItem('cartId', newCart.id);
       await loadCart();
     } catch (err) {
       alert('Failed to clear cart');
@@ -127,8 +127,8 @@ function App() {
 
         // Clear cart and create new one
         const newCart = await api.createCart();
-        setCartId(newCart.cart.id);
-        localStorage.setItem('cartId', newCart.cart.id);
+        setCartId(newCart.id);
+        localStorage.setItem('cartId', newCart.id);
         setCart(null);
         setCheckingOut(false);
       }, 1000);

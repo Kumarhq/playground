@@ -36,6 +36,14 @@ export interface Cart {
   itemCount: number;
 }
 
+export interface CartResponse {
+  id: string;
+  userId?: string;
+  items: any[];
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface CheckoutSession {
   sessionId: string;
   checkoutUrl: string;
@@ -75,7 +83,7 @@ export const api = {
   },
 
   // Cart
-  async createCart(): Promise<Cart> {
+  async createCart(): Promise<CartResponse> {
     const response = await axios.post(`${API_BASE_URL}/cart`);
     return response.data.data;
   },
